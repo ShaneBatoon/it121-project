@@ -1,0 +1,19 @@
+target = 300
+
+def find_closest_number():
+
+    num1 = int(input("Enter your first number: "))
+    num2 = int(input("Enter your second number: "))
+    num3 = int(input("Enter your third number: "))
+
+    my_list = [num1, num2, num3]
+
+    if num1 == num2 == num3:
+        print(f"A is {num1}, B is {num2}, and C with the value of {num3} are all equal. therefore all numbers is closest to 300")
+        return num1
+    else:
+        closest_num = min(my_list, key=lambda x: abs(x - target))
+        print(f"The closest number to {target} is {closest_num}")
+        return closest_num
+
+find_closest_number()
