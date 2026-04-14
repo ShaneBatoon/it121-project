@@ -1,0 +1,38 @@
+try:
+    file = open ("message.txt", "x")
+    print ("FILE CREATED SUCCESSFULLY!")
+except FileExistsError:
+    print ("FILE ALREADY EXIST")
+    
+while True:
+    print ("\nWELCOME TO MESSENGER")
+    print ("\n=== MENU ===")
+    print ("1. SEND A MESSAGE")
+    print ("2. VIEW ALL MESSAGES")
+    print ("3. EXIT PROGRAM")
+    
+    choice = input("\nCHOOSE AN OPTION: ")
+    
+    if choice == "1":
+        try:
+            message = input ("\nENTER A MESSAGE: ")
+            with open ("message.txt", "a") as file:
+                file.write (message + "\n")
+                print("\nMESSAGE SENT!")
+        except Exception as e:
+            print("ERROR 404")
+            
+    elif choice == "2":
+        try:
+            with open ("message.txt", "r") as file:
+                content = file.read()
+                print("\nYOUR MESSAGES: ")
+                print(content)
+                
+        except FileNotFoundError:
+            print("FILE NOT FOUND")
+    elif choice == "3":
+        print("THANK YOU FOR USING PROGRAM!")
+        break
+    else:
+        print("ERROR OCCURED, PLS TRY AGAIN!")
